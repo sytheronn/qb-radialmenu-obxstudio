@@ -10,7 +10,7 @@ A redesigned version of the standard **qb-radialmenu**, inspired by the obX Stud
 
 ## 📸 Preview
 
-![Preview Video](https://youtu.be/I9_uSRJ0R7M)
+[Preview Video](https://youtu.be/I9_uSRJ0R7M)
 
 ## 📦 Dependencies
 
