@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Montserrat:wght@800;900&family=Orbitron:wght@700&family=Rajdhani:wght@700&display=swap');
+
+body {
+    user-select: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+div.info { margin: 10px 0; }
+div.info * {
+    color: #a0a0a0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+#icons {
+    display: none;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+.container {
+    position: absolute;
+    left: 1000px;
+}
+
+div.menuHolder {
+    user-select: none;
+    -moz-user-select: none;
+    position: absolute;
+    left: 0; right: 0; top: 30%;
+    margin: auto;
+    width: 400px; height: 400px;
+    display: flex;
+    align-items: center; justify-content: center;
+    z-index: 10;
+}
+
+svg.icons { display: none; }
+
+svg.menu {
+    position: absolute;
+    overflow: visible;
+    transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 350px; height: 350px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+svg.menu.inner {
+    transform: scale(1.0) rotate(-10deg);
+    opacity: 0; visibility: hidden;
+}
+
+svg.menu.outer {
+    opacity: 0; visibility: hidden;
+}
+
+svg.menu > g > path {
+    fill: rgba(20, 20, 25, 0.65); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.2s ease;
+    stroke: rgba(255, 255, 255, 0.12); 
+    stroke-width: 1px;
+}
+
+svg.menu > g.sector > path {
+    cursor: pointer;
+}
+
+svg.menu > g.sector:hover > path,
+svg.menu > g.sector.active > path {
+    fill: rgba(60, 60, 70, 0.85);
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 1.2px;
+}
+
+svg.menu > g.sector > text {
+    display: none;
+}
+
+svg.menu > g.sector:hover > use,
+svg.menu > g.sector.active > use {
+    fill: #ffffff;
+    transform: scale(1.40);
+    -webkit-transform: scale(1.40);
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+}
+
+#radialTitle {
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffffff 0%, #a6a6a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+#radialTitle.active {
+    opacity: 1;
+    top: 155px;
+    letter-spacing: 6px;
+}
+
+#radialTitle.switching {
+    opacity: 0 !important; 
+    transition: opacity 0.15s ease-in-out !important;
+}
+
+svg.menu > g.sector > text {
+    display: block !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2.3px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    fill: rgba(255, 255, 255, 0.45);
+    text-anchor: middle;
+    alignment-baseline: middle;
+    pointer-events: none;
+    transform: translateY(5.5px); 
+    transition: all 0.2s ease;
+}
+
+svg.menu > g.sector:hover > text,
+svg.menu > g.sector.active > text {
+    fill: #ffffff;
+    opacity: 1;
+    font-size: 2.5px; 
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.8));
+    transform: translateY(6.5px);
+}
+
+svg.menu > g.sector > use {
+    cursor: pointer;
+    fill: #b0b0b0;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), fill 0.2s ease;
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+    transform-box: fill-box;
+    -webkit-transform-box: fill-box;
+}
+
+svg.menu > g.sector:hover > use,
+svg.menu > g.sector.active > use {
+    fill: #ffffff;
+    transform: scale(1.15); 
+    -webkit-transform: scale(1.15);
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
+}
+
+svg.menu > g.center > circle {
+    cursor: pointer;
+    fill: rgba(20, 20, 25, 0.7);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 1;
+}
+
+svg.menu > g.center:hover > circle {
+    fill: rgba(50, 50, 60, 0.9);
+    stroke: rgba(255, 255, 255, 0.5);
+}
+
+svg.menu > g.center > text,
+svg.menu > g.center > use {
+    font-size: 2.4px;
+    cursor: pointer;
+    fill: #b0b0b0;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+    transform-box: fill-box;
+    -webkit-transform-box: fill-box;
+}
+
+svg.menu > g.center:hover > use {
+    fill: #ffffff;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+svg.menu > g.center:hover > text {
+    fill: #ffffff;
+}
+
+#menuLogo {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px; 
+    opacity: 0; 
+    visibility: hidden;
+    transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    z-index: 1; 
+}
+
+#menuLogo.active {
+    opacity: 0.4;
+    visibility: visible;
+    top: 30px; 
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+}
